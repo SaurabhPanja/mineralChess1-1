@@ -1,0 +1,87 @@
+<% include ./partials/header%>
+<div class="container">
+  <div class="left-block">
+    <a href="/" class="btn btn-lg btn-warning pull-right"><b>Go Back</b></a>
+  </div>
+    <div class="row main">
+      <div class="main-login main-center">
+      <h3>Mineral Chess | Registration</h3>
+        <form  action="/register" method="post" >
+
+          <div class="form-group">
+            <label for="Register[name]" class="cols-sm-2 control-label">Your Name</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="Register[name]" id="name"  placeholder="Enter your Name"/ required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="Register[email]" class="cols-sm-2 control-label">Your Email</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="email" class="form-control" name="Register[email]" id="email"  placeholder="Enter your Email"/ required>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email_confirm" class="cols-sm-2 control-label">Confirm Email</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="email" class="form-control" name="email_confirm" id="email_confirm"  placeholder="Enter your Email again" required="required" oninput="check(this)" />
+                <script language='javascript' type='text/javascript'>
+                    function check(input) {
+                        if (input.value != document.getElementById('email').value) {
+                            input.setCustomValidity('Email Must be Matching.');
+                        } else {
+                            // input is valid -- reset the error message
+                            input.setCustomValidity('');
+                        }
+                    }
+                </script>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="Register[contactNumber]" class="cols-sm-2 control-label">Contact Number</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="Register[contactNumber]" id="username"  placeholder="Enter your Contact Number"/ required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="Register[date]" class="cols-sm-2 control-label">Date of the Tournament</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fas fa-calendar-alt" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="Register[date]" value="<%=date%>" readonly>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="Register[venue]" class="cols-sm-2 control-label">Venue</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fas fa-map-marker-alt" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="Register[venue]" value="<%=venue%>" readonly>
+                <input type="text" name=Register[dateVenueId] value="<%=date+venue%>" hidden readonly>
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+            <button type="submit" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+          </div>
+
+        </form>
+
+      </div>
+
+<% include ./partials/footer%>
